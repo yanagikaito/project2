@@ -29,7 +29,7 @@ int main(void) {
     printf("n[0][0]のアドレス:%p\r\n", &n[0][0]);
     printf("n[NUM_X-1][NUM_Y-1]のアドレス:%p\r\n", &n[NUM_X-1][NUM_Y-1]);
 
-    p = &n[NUM_X][NUM_Y];   // VのポインタへV配列の先頭アドレスを渡す。
+    p = &n[0][0];   // VのポインタへV配列の先頭アドレスを渡す。
 
     // FIXME やりたいことがわからない...
     for (int y = 0; y < NUM_Y; y++) {
