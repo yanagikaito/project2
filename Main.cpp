@@ -26,7 +26,7 @@ int main(void) {
 
     printf("[サンプル]変数nのアドレス：%p\r\n", &n);
 
-    printf("n[0][0]のアドレス:%p\r\n", &n[0]);
+    printf("n[0][0]のアドレス:%p\r\n", &n[0][0]);
     printf("n[NUM_X-1][NUM_Y-1]のアドレス:%p\r\n", &n[NUM_X-1][NUM_Y-1]);
 
     p = &n[NUM_X][NUM_Y];   // VのポインタへV配列の先頭アドレスを渡す。
