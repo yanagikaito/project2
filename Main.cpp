@@ -25,12 +25,12 @@ void setNum(V* p) {
         p->y = y;
     }
     sum = p->x + p->y + p->z;
-    printf("sum�̒l�̌���:%d\r\n", sum);
+    printf("sumの値の結果:%d\r\n", sum);
 }
 
 int main(void) {
 
-    V n[NUM_X][NUM_Y][NUM_Z];    // �v�f��10,20 (�e�v�f�ɂ��Ă͏��������Ă��Ȃ����ߓK���Ȓl�������Ă���j
+    V n[NUM_X][NUM_Y][NUM_Z];    // 要素は10,20 (各要素については初期化していないため適当な値が入っている）
 
     for (int y = 0; y < NUM_Y; y++) {
         for (int x = 0; x < NUM_X; x++) {
@@ -43,15 +43,15 @@ int main(void) {
         }
     }
 
-    V* p;                 // �e�v�f���Q�Ƃ��邽�߂̃|�C���^
+    V* p;                 // 各要素を参照するためのポインタ
 
-    printf("[�T���v��]�ϐ�n�̃A�h���X�F%d\r\n", &n);
+    printf("[サンプル]変数nのアドレス：%d\r\n", &n);
 
-    printf("n[0][0]�̃A�h���X:%d\r\n", n[0][0][0]);
+    printf("n[0][0]のアドレス:%d\r\n", n[0][0][0]);
 
-    printf("n[NUM_X - 1],n[NUM_Y - 1],n[NUM_Z - 1]�̃A�h���X:%d,%d,%d\r\n", n[NUM_X - 1], n[NUM_Y - 1], n[NUM_Z - 1]);
+    printf("n[NUM_X - 1],n[NUM_Y - 1],n[NUM_Z - 1]のアドレス:%d,%d,%d\r\n", n[NUM_X - 1], n[NUM_Y - 1], n[NUM_Z - 1]);
 
-    p = &n[NUM_X - 1][NUM_Y - 1][NUM_Z - 1];   // V�̃|�C���^��V�z��̐擪�A�h���X��n���B
+    p = &n[NUM_X - 1][NUM_Y - 1][NUM_Z - 1];   // VのポインタへV配列の先頭アドレスを渡す。
 
     setNum(p);
 
