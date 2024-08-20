@@ -9,6 +9,20 @@ struct V {
     int y;
 };
 
+void setNum(V* p) {
+
+    int sum;
+
+    for (int y = 0; y < NUM_Y; y++) {
+        for (int x = 0; x < NUM_X; x++) {
+            p->x = x;
+        }
+        p->y = y;
+    }
+    sum = p->x + p->y;
+    printf("sumの値の結果:%d\r\n", sum);
+}
+
 int main(void) {
 
     V n[NUM_X][NUM_Y];    // 要素は10,20 (各要素については初期化していないため適当な値が入っている）
@@ -32,17 +46,7 @@ int main(void) {
 
     p = &n[NUM_X - 1][NUM_Y - 1];   // VのポインタへV配列の先頭アドレスを渡す。
 
-    int sum;
+    setNum(p);
 
-    for (int y = 0; y < NUM_Y; y++) {
-        for (int x = 0; x < NUM_X; x++) {
-            p->x = x;
-            printf("[重要]p->xの値の結果:%d\r\n", p->x);
-        }
-        p->y = y;
-        printf("[重要]p->yの値の結果:%d\r\n", p->y);
-    }
-    sum = p->x + p->y;
-    printf("sumの値の結果:%d\r\n", sum);
     return 0;
 }
