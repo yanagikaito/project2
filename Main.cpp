@@ -15,7 +15,7 @@ int main(void) {
 
     for (int y = 0; y < NUM_Y; y++) {
         for (int x = 0; x < NUM_X; x++) {
-            n[NUM_X][NUM_Y] = {
+            n[x][y] = {
                 x * EDGE,
                 y * EDGE,
             };
@@ -26,10 +26,13 @@ int main(void) {
 
     printf("[サンプル]変数nのアドレス：%d\r\n", &n);
 
-    printf("n[NUM_X]のアドレス:%d\r\n", n[NUM_X]);
-    printf("n[NUM_Y]のアドレス:%d\r\n", n[NUM_Y]);
+    printf("n[0][0]のアドレス:%d\r\n", n[0][0]);
 
-    p = &n[NUM_X][NUM_Y];   // VのポインタへV配列の先頭アドレスを渡す。
+    printf("n[NUM_X - 1],n[NUM_Y - 1]のアドレス:%d,%d\r\n", n[NUM_X - 1], n[NUM_Y - 1]);
+
+    p = &n[NUM_X - 1][NUM_Y - 1];   // VのポインタへV配列の先頭アドレスを渡す。
+
+    int sum;
 
     for (int y = 0; y < NUM_Y; y++) {
         for (int x = 0; x < NUM_X; x++) {
@@ -39,6 +42,7 @@ int main(void) {
         p->y = y;
         printf("[重要]p->yの値の結果:%d\r\n", p->y);
     }
-
+    sum = p->x + p->y;
+    printf("sumの値の結果:%d\r\n", sum);
     return 0;
 }
