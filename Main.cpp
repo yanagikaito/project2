@@ -15,8 +15,8 @@ void setNum(V* p) {
 
     for (int y = 0; y < NUM_Y; y++) {
         for (int x = 0; x < NUM_X; x++) {
-            p[x, y].x = p[x, y].x;
-            sum = p[x, y].x;
+            p[y, x], x;
+            sum = p[y, x].x;
         }
     }
     printf("sumの値の結果:%d\r\n", sum);
@@ -45,7 +45,7 @@ int main(void) {
 
     p = &n[NUM_X - 1][NUM_Y - 1];   // VのポインタへV配列の先頭アドレスを渡す。
 
-    setNum(p);
+    setNum(&n[0][0]);
 
     return 0;
 }
