@@ -11,12 +11,12 @@ struct V {
 
 void setNum(V* p) {
 
-    int sum;
+    int sum = 0;
 
     for (int y = 0; y < NUM_Y; y++) {
         for (int x = 0; x < NUM_X; x++) {
             p[y, x], x;
-            sum = p[y, x].x;
+            sum += (p + NUM_X * x)[y].x;
         }
     }
     printf("sumの値の結果:%d\r\n", sum);
@@ -43,9 +43,9 @@ int main(void) {
 
     printf("n[NUM_X - 1],n[NUM_Y - 1]のアドレス:%d,%d,%d\r\n", n[NUM_X - 1], n[NUM_Y - 1]);
 
-    p = &n[NUM_X - 1][NUM_Y - 1];   // VのポインタへV配列の先頭アドレスを渡す。
+    p = &n[0][0];   // VのポインタへV配列の先頭アドレスを渡す。
 
-    setNum(&n[0][0]);
+    setNum(p);
 
     return 0;
 }
