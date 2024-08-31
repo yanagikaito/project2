@@ -41,7 +41,7 @@ int main(void) {
 
     printf("n[0][0]のアドレス:%d\r\n", n[0][0]);
 
-    printf("n[NUM_X - 1],n[NUM_Y - 1],n[NUM_Z - 1]のアドレス:%d,%d,%d\r\n", n[NUM_X - 1], n[NUM_Y - 1]);
+    printf("n[NUM_X - 1],n[NUM_Y - 1]のアドレス:%d,%d,%d\r\n", n[NUM_X - 1], n[NUM_Y - 1]);
 
     p = &n[NUM_X - 1][NUM_Y - 1];   // VのポインタへV配列の先頭アドレスを渡す。
 
