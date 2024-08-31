@@ -16,7 +16,7 @@ void setNum(V* p) {
     for (int y = 0; y < NUM_Y; y++) {
         for (int x = 0; x < NUM_X; x++) {
             p[y, x], x;
-            sum += (p + NUM_X * x)[y].x;
+            sum = (p + NUM_Y * x)[y].x;
         }
     }
     printf("sumの値の結果:%d\r\n", sum);
