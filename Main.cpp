@@ -1,51 +1,28 @@
-#include <stdio.h>
 #include <iostream>
-#define NUM_X (10)
-#define NUM_Y (20)
-#define EDGE  (32)
 
-struct V {
-    int x;
-    int y;
-};
+// 関数のオーバロード(引数が違うと,同じ名前の関数を定義できる)
+void setNum(int num) {
 
-void setNum(V* p) {
-
-    int sum = 0;
-
-    for (int y = 0; y < NUM_Y; y++) {
-        for (int x = 0; x < NUM_X; x++) {
-            p[y, x], x;
-            sum = (p + NUM_Y * x)[y].x;
-        }
-    }
-    printf("sumの値の結果:%d\r\n", sum);
+    std::cout << "int:" << num << std::endl;
 }
 
-int main(void) {
+void setNum(float num) {
 
-    V n[NUM_X][NUM_Y];
+    std::cout << "float:" << num << std::endl;
+}
 
-    for (int y = 0; y < NUM_Y; y++) {
-        for (int x = 0; x < NUM_X; x++) {
-            n[x][y] = {
-                x * EDGE,
-                y * EDGE,
-            };
-        }
-    }
+void setNum(double num) {
 
-    V* p;                 // 各要素を参照するためのポインタ
+    std::cout << "double:" << num << std::endl;
+}
 
-    printf("[サンプル]変数nのアドレス：%d\r\n", &n);
+int main() {
 
-    printf("n[0][0]のアドレス:%d\r\n", n[0][0]);
+    setNum(5);
 
-    printf("n[NUM_X - 1],n[NUM_Y - 1]のアドレス:%d,%d,%d\r\n", n[NUM_X - 1], n[NUM_Y - 1]);
+    setNum(5.0f);
 
-    p = &n[0][0];   // VのポインタへV配列の先頭アドレスを渡す。
-
-    setNum(p);
+    setNum(5.0);
 
     return 0;
 }
