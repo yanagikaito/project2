@@ -1,28 +1,37 @@
 #include <iostream>
 
-// 関数のオーバロード(引数が違うと,同じ名前の関数を定義できる)
-void setNum(int num) {
+struct POS {
+    int x, y;
+};
 
-    std::cout << "int:" << num << std::endl;
+// 参照(reference)
+void setNum(POS* p) {
+
+    std::cout << p->x << ' ' << p->y << std::endl;
 }
 
-void setNum(float num) {
+// 表示するだけの関数
+void setNum(const POS& r) {
 
-    std::cout << "float:" << num << std::endl;
+    std::cout << r.x << ' ' << r.y << std::endl;
 }
 
-void setNum(double num) {
-
-    std::cout << "double:" << num << std::endl;
+void init(POS& r) {
+    r.x = 0;
+    r.y = 0;
 }
 
 int main() {
 
-    setNum(5);
+    // 実体
+    POS a{ 10,20 };
 
-    setNum(5.0f);
+    setNum(&a);
 
-    setNum(5.0);
+    init(a);
+
+    // 中身はポインタが渡されている
+    setNum(a);
 
     return 0;
 }
