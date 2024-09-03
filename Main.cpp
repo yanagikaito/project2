@@ -21,5 +21,6 @@ int main() {
     player->setLv(5);
     int lv = player->getLv();
     std::cout << lv << std::endl;
+
     return 0;
 }
