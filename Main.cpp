@@ -1,9 +1,7 @@
 #include <iostream>
 #include "Player.h"
 
-int main() {
-
-    Player* player = new Player[5]();
+void putStatus(Player* player) {
 
     player[0].setName('h');
     player[1].setName('e');
@@ -16,15 +14,25 @@ int main() {
     for (int i = 0; i < 5; i++) {
         std::cout << player[i].getName();
     }
+}
+
+int main() {
+
+    Player* player = new Player[5]();
+
+    putStatus(player);
+
 
     player->setHp(100);
     int hp = player->getHp();
+
     std::cout << "HP" << ' ' << hp << std::endl;
 
     std::cout << "-----------" << ' ' << std::endl;
 
     player->setLv(5);
     int lv = player->getLv();
+
     std::cout << "LV" << ' ' << lv << std::endl;
 
     std::cout << "-----------" << ' ' << std::endl;
