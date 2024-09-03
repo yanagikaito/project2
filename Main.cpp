@@ -3,11 +3,16 @@
 
 int main() {
 
-    Player* player = new Player();
+    Player* player = new Player[4]();
 
-    player->setName('hero');
-    char name = player->getName();
-    std::cout << name << std::endl;
+    player[0].setName('h');
+    player[1].setName('e');
+    player[2].setName('r');
+    player[3].setName('o');
+
+    for (int i = 0; i < 4; i++) {
+        std::cout << player[i].getName() << std::endl;
+    }
 
     player->setHp(100);
     int hp = player->getHp();
