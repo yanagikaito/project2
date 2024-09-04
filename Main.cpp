@@ -3,25 +3,11 @@
 
 void putStatus(Player* player) {
 
-    player[0].setName('h');
-    player[1].setName('e');
-    player[2].setName('r');
-    player[3].setName('o');
-    player[4].setName(' ');
+    player->setName("hero");
 
     std::cout << "-----------" << ' ' << std::endl;
 
-    for (int i = 0; i < 5; i++) {
-        std::cout << player[i].getName();
-    }
-}
-
-int main() {
-
-    Player* player = new Player[5]();
-
-    putStatus(player);
-
+    std::cout << player->getName() << ' ';
 
     player->setHp(100);
     int hp = player->getHp();
@@ -36,6 +22,16 @@ int main() {
     std::cout << "LV" << ' ' << lv << std::endl;
 
     std::cout << "-----------" << ' ' << std::endl;
+
+}
+
+int main() {
+
+    Player* player;
+
+    player = new Player();
+
+    putStatus(player);
 
     return 0;
 }
