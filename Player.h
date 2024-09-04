@@ -1,40 +1,44 @@
-class Player {
-private:
-    char Name;
-    int Hp;
-    int Lv;
+#include <iostream>
+#include <string>
+#include <map>
+#include "Character.h"
+
+class Player : public Character {
+
 public:
-    void setName(char name);
-    char getName();
-    void setHp(int hp);
-    int getHp();
-    void setLv(int lv);
-    int getLv();
+    Player() {
+
+    }
+
+public:
+    void setName(std::string name) {
+        this->name = name;
+    }
+    std::string getName() {
+        return this->name;
+    }
 };
 
-
-void Player::setName(char name) {
+void Character::setName(char name) {
     Name = name;
 }
 
-char Player::getName() {
+char Character::getName() {
     return Name;
 }
 
-void Player::setHp(int hp) {
+void Character::setHp(int hp) {
     Hp = hp;
 }
 
-int Player::getHp() {
+int Character::getHp() {
     return Hp;
 }
 
-void Player::setLv(int lv) {
+void Character::setLv(int lv) {
     Lv = lv;
 }
 
-int Player::getLv() {
+int Character::getLv() {
     return Lv;
-}
-
-
+};
