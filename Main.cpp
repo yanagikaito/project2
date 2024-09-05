@@ -27,9 +27,7 @@ void putStatus(Player* player) {
 
 int main() {
 
-    Player* player;
-
-    player = new Player();
+    Player* player = new Player();
 
     putStatus(player);
 

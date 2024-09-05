@@ -17,28 +17,20 @@ public:
     std::string getName() {
         return this->name;
     }
-};
 
-void Character::setName(char name) {
-    Name = name;
-}
+    void setHp(int hp) override {
+        Hp = hp;
+    }
 
-char Character::getName() {
-    return Name;
-}
+    int getHp() override {
+        return Hp;
+    }
 
-void Character::setHp(int hp) {
-    Hp = hp;
-}
+    void setLv(int lv) override {
+        Lv = lv;
+    }
 
-int Character::getHp() {
-    return Hp;
-}
-
-void Character::setLv(int lv) {
-    Lv = lv;
-}
-
-int Character::getLv() {
-    return Lv;
+    int getLv() override {
+        return Lv;
+    }
 };
