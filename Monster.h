@@ -19,7 +19,7 @@ public:
 };
 
 void Monster::setName(std::string name) {
-    name = name;
+    name = name; //FIXME
 }
 std::string Monster::getName() {
     return name;

@@ -1,52 +1,30 @@
 #include <iostream>
+#include "Character.h"
 #include "Player.h"
 #include "Monster.h"
 
-void putStatus(Player* player) {
+void putStatus(Character* character, std::string name) {
 
-    player->setName("hero");
+    character->setName(name);
 
     std::cout << "-----------" << ' ' << std::endl;
 
-    std::cout << player->getName() << ' ';
+    std::cout << character->getName() << ' ';
 
-    player->setHp(100);
-    int hp = player->getHp();
+    character->setHp(100);
+    int hp = character->getHp();
 
     std::cout << "HP" << ' ' << hp << std::endl;
 
     std::cout << "-----------" << ' ' << std::endl;
 
-    player->setLv(5);
-    int lv = player->getLv();
+    character->setLv(5);
+    int lv = character->getLv();
 
     std::cout << "LV" << ' ' << lv << std::endl;
 
     std::cout << "-----------" << ' ' << std::endl;
 
-}
-
-void putMonster(Monster* monster) {
-
-    monster->setName("スライム");
-
-    std::cout << "-----------" << ' ' << std::endl;
-
-    std::cout << monster->getName() << ' ';
-
-    monster->setHp(10);
-    int hp = monster->getHp();
-
-    std::cout << "HP" << ' ' << hp << std::endl;
-
-    std::cout << "-----------" << ' ' << std::endl;
-
-    monster->setLv(5);
-    int lv = monster->getLv();
-
-    std::cout << "LV" << ' ' << lv << std::endl;
-
-    std::cout << "-----------" << ' ' << std::endl;
 }
 
 int main() {
@@ -55,9 +33,9 @@ int main() {
 
     Monster* monster = new Monster();
 
-    putStatus(player);
+    putStatus(player, "hero");
 
-    putMonster(monster);
+    putStatus(monster, "スライム");
 
     return 0;
 }
