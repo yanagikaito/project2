@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <map>
 #include "Character.h"
 
 class Player : public Character {
@@ -11,10 +10,10 @@ public:
     }
 
 public:
-    void setName(std::string name) {
+    void setName(std::string name) override {
         this->name = name;
     }
-    std::string getName() {
+    std::string getName() override {
         return this->name;
     }
 
