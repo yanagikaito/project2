@@ -3,6 +3,7 @@ using namespace std;
 #include <iostream>
 
 class Character {
+
 private:
 
     // ƒƒ“ƒo•Ï”
