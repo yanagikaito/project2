@@ -37,4 +37,8 @@ public:
 
         std::cout << "---------------" << ' ' << std::endl;
     }
+
+    // ƒQƒbƒ^[
+    string getName() { return _name; }
+    int getHP() { return _hp; }
 };
