@@ -16,6 +16,9 @@ struct Character {
     // 引数ありのコンストラクタ関数
     Character(string name, int hp, int lv) { _name = name; _hp = hp; _lv = lv; }
 
+    // デストラクタ
+    ~Character() { cout << _name << "が消えました。" << endl; }
+
     // ステータス表示する関数
     void putStatus() {
 
