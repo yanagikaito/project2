@@ -7,6 +7,7 @@ int main() {
     Character player("—EÒ", 100, 5);
     Character monster("ƒXƒ‰ƒCƒ€", 30, 1);
 
+    // class‚Å‚Íprivate‚¾‚Æ.‚È‚ñ‚Æ‚©‚Å‚ÌŒÄ‚Ño‚µ‚Í‚Å‚«‚È‚­‚È‚é
     player.putStatus();
     monster.putStatus();
 

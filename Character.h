@@ -2,12 +2,15 @@ using namespace std;
 #include <string>
 #include <iostream>
 
-struct Character {
+class Character {
+private:
 
     // メンバ変数
     string _name;
     int _hp;
     int _lv;
+
+public:
 
     // メンバ関数
     // コンストラクタ関数
