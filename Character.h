@@ -22,10 +22,10 @@ public:
     Character(string name, int hp, int lv) :
         _name(name), _hp(hp), _lv(lv) {}
 
-    // デストラクタ
-    ~Character() { cout << _name << "が消えました。" << endl; }
+    // 仮想デストラクタ
+    virtual ~Character() { cout << _name << "が消えました。" << endl; }
 
-    // ステータス表示する関数
+    // 純粋仮想関数
     virtual void putStatus() = 0;
 
     // ゲッター
