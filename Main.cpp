@@ -5,30 +5,18 @@
 
 int main() {
 
-    // インスタンス(実例)をつくる。
-    // 設計図をもとにしてつくる。
-    // 構造体でもclassでもnewしなくてもインスタンスが生成されてコンストラクタが呼べる。
+    // 多態性
+    Character* characters[]{ new Player,new Monster };
 
-    Player player;
+    for (auto character : characters) {
 
-    // classではprivateだと.なんとかでの呼び出しはできなくなる
-    // メンバ変数を外部から変な値を入れなくするため
+        character->putStatus();
+    }
 
-    player.putStatus();
+    for (auto character : characters) {
 
-    std::cout << std::endl;
-
-    // Playerクラスのインスタンスのアドレス(派生クラスのアドレス)
-    // アドレスはCharacterクラスのポインタ(基底クラスのポインタ)
-    // 基底クラスのポインタに派生クラスのインスタンスのアドレスが入れられる。
-
-    Character* character{ new Player };
-
-    character->putStatus();
-
-    std::cout << std::endl;
-
-    delete character;
+        delete character;
+    }
 
     return 0;
 }
