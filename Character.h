@@ -2,6 +2,7 @@ using namespace std;
 #include <string>
 #include <iostream>
 
+// 基底クラス(継承もとになるクラス)
 class Character {
 
 private:
@@ -42,4 +43,5 @@ public:
     // ゲッター
     string getName() { return _name; }
     int getHP() { return _hp; }
+    int getLV() { return _lv; }
 };

@@ -11,9 +11,6 @@ int main() {
     Player player;
     Monster monster;
 
-    std::cout << player.getName() << std::endl;
-    std::cout << player.getHP() << std::endl;
-
     // classではprivateだと.なんとかでの呼び出しはできなくなる
     // メンバ変数を外部から変な値を入れなくするため
 
