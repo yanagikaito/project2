@@ -4,39 +4,52 @@
 #include "Monster.h"
 #include "Boss.h"
 
-// マップ表示する関数
-void drawMap(int rows, int cols, int* map) {
-    for (int r = 0; r < rows; r++) {
-        for (int c = 0; c < cols; c++) {
-            std::cout << map[cols * r + c];
-        }
-        std::cout << std::endl;
-    }
-}
-
 int main() {
 
+    // ポインタのポインタ
+    int** p;
+
     // rows 行　cols 列
-    const int rows = 10;
-    const int cols = 20;
+    int row;
+    int col{};
 
-    // 1次元配列初期化
-    int map[rows * cols]{};
+    std::cout << "行数を入力してください";
 
-    drawMap(rows, cols, map);
+    cin >> row;
 
-    // 多態性
-    Character* characters[]{ new Player,new Monster,new Boss };
+    cout << "列数を入力してください";
 
-    for (auto character : characters) {
+    cin >> col;
 
-        character->putStatus();
+    // 記憶場所を用意
+
+    // 行を確保
+    p = new int* [row];
+
+    // 列を確保
+    for (int i = 0; i < row; i++) {
+        p[i] = new int[col];
     }
 
-    for (auto character : characters) {
-
-        delete character;
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++) {
+            p[i][j] = i * col + j;
+        }
     }
+
+    // 値を表示
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++) {
+            cout << p[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    // メモリの解放
+    for (int i = 0; i < row; i++) {
+        delete[] p[i];
+    }
+    delete[] p;
 
     return 0;
 }
