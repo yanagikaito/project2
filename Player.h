@@ -6,6 +6,9 @@ public:
     Player() :
         Character("勇者", 100, 5) {}
 
+    // Playerのデストラクタ
+    ~Player() override { cout << getName() << "[目の前が真っ暗になった。]" << endl; }
+
     // 関数のオーバーライド
     void putStatus() override {
 
