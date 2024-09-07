@@ -25,7 +25,7 @@ public:
     ~Character() { cout << _name << "が消えました。" << endl; }
 
     // ステータス表示する関数
-    void putStatus() {
+    virtual void putStatus() {
 
         std::cout << "---------------" << ' ' << std::endl;
 

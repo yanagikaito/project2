@@ -6,11 +6,11 @@ public:
         Character("スライム", 30, 1) {}
 
     // 関数のオーバーライド
-    void putStatus() {
+    void putStatus() override {
 
         std::cout << "---------------" << ' ' << std::endl;
 
-        std::cout << getName() << ' ';
+        std::cout << getName() << ' ' << "オーバーライド" << std::endl;
 
         std::cout << "HP" << ' ' << getHP() << std::endl;
 
