@@ -8,6 +8,7 @@ int main() {
     // インスタンス(実例)をつくる。
     // 設計図をもとにしてつくる。
     // 構造体でもclassでもnewしなくてもインスタンスが生成されてコンストラクタが呼べる。
+
     Player player;
     Monster monster;
 
