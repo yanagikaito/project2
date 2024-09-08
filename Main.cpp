@@ -2,11 +2,12 @@
 #include "Character.h"
 #include "Player.h"
 #include "Monster.h"
+#include <vector>
 
 int main() {
 
-    // ‘½‘Ô«
-    Character* characters[]{ new Player,new Monster };
+    std::vector<Character*> characters{ new Player,new Monster };
+
 
     for (auto character : characters) {
 
