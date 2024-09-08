@@ -1,55 +1,90 @@
 #include <iostream>
-#include "Character.h"
-#include "Player.h"
-#include "Monster.h"
-#include "Boss.h"
+#include <vector>
+
+void show(std::vector<int>& data) {
+
+    //// 全要素の表示
+    // イテレータはポインタと考える
+
+   // 1番最初の要素を指すアドレスがitに入ってくる
+
+   // データがなかったらループする
+
+   // it != data.end();
+   // 最後のところまで処理していなかったらループしなさい
+
+   // 全てのデータ構造で使用できる書き方
+   // auto(std::vector<int>::iterator)
+
+    for (auto it = data.begin(); it != data.end(); ++it) {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
+}
 
 int main() {
 
-    // ポインタのポインタ
-    int** p;
+    // 要素数を変更できる配列
 
-    // rows 行　cols 列
-    int row;
-    int col{};
+    // int型の配列のクラス
+    std::vector<int> data;
 
-    std::cout << "行数を入力してください";
-
-    cin >> row;
-
-    cout << "列数を入力してください";
-
-    cin >> col;
-
-    // 記憶場所を用意
-
-    // 行を確保
-    p = new int* [row];
-
-    // 列を確保
-    for (int i = 0; i < row; i++) {
-        p[i] = new int[col];
+    // おしりに要素を追加
+    // 配列の最後の要素に付け加える。
+    for (int i = 0; i < 6; i++) {
+        data.push_back(i + 1);
     }
+    show(data);
 
-    for (int i = 0; i < row; i++) {
-        for (int j = 0; j < col; j++) {
-            p[i][j] = i * col + j;
+    // おしりの要素を削除
+    // 1番最後の要素が削除される。
+   /* for (int i = 0; i < 6; i++) {
+        data.pop_back();
+        show(data);
+    }*/
+
+    // 途中の要素を削除
+    for (auto it = data.begin(); it != data.end();) {
+        if (*it % 2 == 1) {
+
+            // data.erase(it);だけだと
+            // イレーズしたイテレータが無効になる。
+            // イテレータそのものが無効になる。
+            // 無効になっているにもかかわらず,it++されるのでエラーになってしまう。
+            // it = data.erase(it);ってやると,その場所を消してくれて,次のところを指します。
+            // そういうイテレータを返してくれる。
+
+            it = data.erase(it);
+        }
+        else {
+            it++;
         }
     }
+    show(data);
 
-    // 値を表示
-    for (int i = 0; i < row; i++) {
-        for (int j = 0; j < col; j++) {
-            cout << p[i][j] << " ";
+    // 途中に要素を挿入
+    for (auto it = data.begin(); it != data.end();) {
+        if (*it % 2 == 0) {
+            // インサートするときもイテレータが無効になってしまう。
+            // itは1を指している。
+            it = data.insert(it, *it - 1);
+            // ずれた2を指す
+            it++;
         }
-        cout << endl;
+        // 次を指す
+        // ４を指す
+        it++;
     }
+    show(data);
 
-    // メモリの解放
-    for (int i = 0; i < row; i++) {
-        delete[] p[i];
-    }
-    delete[] p;
+    //for (int i = 0; i < data.size(); i++)
+    //    std::cout << data[i] << " ";
+    //std::cout << std::endl;
+
+    //for (auto d : data) {
+    //    std::cout << d << " ";
+    //}
+    //std::cout << std::endl;
 
     return 0;
 }
