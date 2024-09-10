@@ -10,9 +10,7 @@ int main() {
     std::vector<Character*> characters{ new Player,new Monster,new Boss };
 
     for (auto it = characters.begin(); it != characters.end(); ++it) {
-        for (auto character : characters) {
-            (*it)->putStatus();
-        }
+        (*it)->putStatus();
     }
     std::cout << std::endl;
 
