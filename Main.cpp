@@ -1,8 +1,8 @@
 #include <iostream>
+#include <vector>
 #include "Character.h"
 #include "Player.h"
 #include "Monster.h"
-#include <vector>
 
 int main() {
 
