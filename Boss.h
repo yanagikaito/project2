@@ -1,14 +1,12 @@
-// 派生クラス(基底クラスを継承してつくったクラス)
-class Monster : public Character {
+class Boss : public Character {
 
 public:
-    Monster() :
-        Character("スライム", 30, 1) {}
+    Boss() :
+        Character("魔王", 500, 100) {}
 
-    // Monsterのデストラクタ
-    ~Monster() override { cout << getName() << "[目の前が真っ暗になった。]" << endl; }
+    // Bossのデストラクタ
+    ~Boss() override { cout << getName() << "[目の前が真っ暗になった。]" << endl; }
 
-    // 関数のオーバーライド
     void putStatus() override {
 
         std::cout << "---------------" << ' ' << std::endl;
