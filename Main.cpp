@@ -69,5 +69,18 @@ int main() {
     }
     std::cout << std::endl;
 
+    // 途中に要素を追加する
+    // 0番目
+    auto it = data.begin();
+
+    // 1次オブジェクト作ってコピー
+    /*  data.insert(it, { 0,0 });*/
+    data.emplace(it, 0, 0);
+    std::cout << "-----------------" << std::endl;
+    for (auto it = data.begin(); it != data.end(); ++it) {
+        std::cout << *it << " ";
+        std::cout << std::endl;
+    }
+
     return 0;
 }
