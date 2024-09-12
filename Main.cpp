@@ -42,6 +42,9 @@ int main() {
 
     std::vector<POS> data;
 
+    // リザーブ メモリ上に最初から3つ分用意する。
+    data.reserve(3);
+
     //おしりに要素を追加
     for (int i = 1; i <= 3; i++) {
         std::cout << "-----------------" << std::endl;
