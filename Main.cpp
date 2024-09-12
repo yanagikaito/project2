@@ -24,28 +24,36 @@ struct POS {
     }
 };
 
+// クラスに対してoperator<<をオーバーロードしています。
+ostream& operator << (ostream& os, const POS& pos) {
+    return os << pos.x << "," << pos.y;
+}
+
 int main() {
 
-    POS pos1;
+    //POS pos1;
 
-    // int型がPOS型に変換される
-    POS pos2{ 1,1 };
+    //// int型がPOS型に変換される
+    //POS pos2{ 1,1 };
 
-    POS pos3 = pos2;
+    //POS pos3 = pos2;
 
     // 要素数を変更できる配列
 
-    std::vector<int> data;
+    std::vector<POS> data;
 
     //おしりに要素を追加
-    for (int i = 1; i <= 10; i++) {
-        data.push_back(i);
+    for (int i = 1; i <= 3; i++) {
+        std::cout << "-----------------" << std::endl;
+        std::cout << "push_back" << " " << i << "回目 ";
+        data.push_back({ i,i * 10 });
 
         // data.capacity() 実際に表示されている数
         std::cout << "-----------------" << std::endl;
-        std::cout << "push_back" << " " << i << "回目 " << " " << data.size() << " ";
+        /*  std::cout << "push_back" << " " << i << "回目 " << " " << data.size() << " ";
 
-        std::cout << data.capacity() << std::endl;
+          std::cout << data.capacity() << std::endl;
+          */
     }
     std::cout << "-----------------" << std::endl;
 
