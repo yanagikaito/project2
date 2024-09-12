@@ -49,7 +49,11 @@ int main() {
     for (int i = 1; i <= 3; i++) {
         std::cout << "-----------------" << std::endl;
         std::cout << "push_back" << " " << i << "回目 ";
-        data.push_back({ i,i * 10 });
+        /*data.push_back({ i,i * 10 });*/
+
+        // エンプレイズバック 1番最後のおしりに置く
+        // 直接配列にiとi *10を記憶させる。
+        data.emplace_back(i, i * 10);
 
         // data.capacity() 実際に表示されている数
         std::cout << "-----------------" << std::endl;
