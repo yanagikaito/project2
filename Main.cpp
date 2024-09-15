@@ -5,82 +5,25 @@
 #include "Monster.h"
 #include "Boss.h"
 
-struct POS {
-    int x, y;
-    POS() :x(0), y(0)
-    {
-        std::cout << "initialized(" << x << "," << y << ")\n";
-    }
-    // 変換コンストラクタ
-    POS(int x, int y) :x(x), y(y)
-    {
-        std::cout << "converted(" << x << "," << y << ")\n";
-    }
-
-    // コピーコンストラクタ
-    POS(const POS& pos) :x(pos.x), y(pos.y)
-    {
-        std::cout << "copied(" << x << "," << y << ")\n";
-    }
-};
-
-// クラスに対してoperator<<をオーバーロードしています。
-ostream& operator << (ostream& os, const POS& pos) {
-    return os << pos.x << "," << pos.y;
+void print_vector_info(const std::vector<int>& v) {
+    std::cout << "size = " << v.size() << ", capacity = " << v.capacity() << std::endl;
 }
-
 int main() {
 
-    //POS pos1;
+    std::vector<int> numbers = { 3,1,-4,1,-5,9,-2,6,5,3 };
+    print_vector_info(numbers);
 
-    //// int型がPOS型に変換される
-    //POS pos2{ 1,1 };
+    /*numbers.reserve();*/
+    std::cout << "------------------" << std::endl;
+    print_vector_info(numbers);
+    std::cout << "------------------" << std::endl;
 
-    //POS pos3 = pos2;
-
-    // 要素数を変更できる配列
-
-    std::vector<POS> data;
-
-    // リザーブ メモリ上に最初から3つ分用意する。
-    data.reserve(3);
-
-    //おしりに要素を追加
-    for (int i = 1; i <= 3; i++) {
-        std::cout << "-----------------" << std::endl;
-        std::cout << "push_back" << " " << i << "回目 ";
-        /*data.push_back({ i,i * 10 });*/
-
-        // エンプレイズバック 1番最後のおしりに置く
-        // 直接配列にiとi *10を記憶させる。
-        data.emplace_back(i, i * 10);
-
-        // data.capacity() 実際に表示されている数
-        std::cout << "-----------------" << std::endl;
-        /*  std::cout << "push_back" << " " << i << "回目 " << " " << data.size() << " ";
-
-          std::cout << data.capacity() << std::endl;
-          */
+    for (int i = 0; i < 5; i++) {
+        numbers.emplace_back(i);
+        print_vector_info(numbers);
+        std::cout << "------------------" << std::endl;
     }
-    std::cout << "-----------------" << std::endl;
-
-    for (auto it = data.begin(); it != data.end(); ++it) {
-        std::cout << *it << " ";
-    }
-    std::cout << std::endl;
-
-    // 途中に要素を追加する
-    // 0番目
-    auto it = data.begin();
-
-    // 1次オブジェクト作ってコピー
-    /*  data.insert(it, { 0,0 });*/
-    data.emplace(it, 0, 0);
-    std::cout << "-----------------" << std::endl;
-    for (auto it = data.begin(); it != data.end(); ++it) {
-        std::cout << *it << " ";
-        std::cout << std::endl;
-    }
+    print_vector_info(numbers);
 
     return 0;
 }
