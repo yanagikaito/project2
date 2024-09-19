@@ -9,32 +9,56 @@
 #include "Monster.h"
 #include "Boss.h"
 
-template < typename Engine >
-bool open_chest(Engine& e)
-{
-    std::bernoulli_distribution d(37.0 / 100.0);
+// Tと書いたところが指定した型になる。
+// Nが要素数
+// MyArrayがテンプレート化されたということは何型の配列でも作ることができる。
 
-    return d(e);
-}
+// テンプレートクラス
+template<typename T, int N>
+struct MyArray {
 
-int main() {
+    T elems[N];
 
-    // 試行回数
-    const int trial_count = 1000;
+    // 参照使って構造体に定義しているelems[i]そのもの(アドレス)を返す。
+    T& at(int i) { return elems[i]; }
+    T& operator[](int i) { return elems[i]; }
+    int size() { return N; }
+};
 
-    std::mt19937 e;
+struct POS {
+    int x;
+    int y;
+};
 
-    // ベルヌーイ分布
-    std::bernoulli_distribution d(37.0 / 100.0);
+int main(void) {
 
-    std::array<int, 2> result{};
+    // コンパイルする時に生成される。
+    MyArray<int, 3> arr;
 
-    for (int i = 0; i != trial_count; ++i)
+    for (int i = 0; i < arr.size(); i++) {
+        /*arr.at(i) = i + 1;*/
+        arr[i] = i + 1;
+    }
 
-        ++result[d(e)];
+    for (int i = 0; i < arr.size(); i++) {
+        /*std::cout << arr.at(i) << std::endl;*/
+        std::cout << arr[i] << ' ';
+    }
+    std::cout << std::endl;
 
-    std::cout << "false: " << double(result[0]) / double(trial_count) * 100.0 << std::endl;
-    std::cout << "true : " << double(result[1]) / double(trial_count) * 100.0 << std::endl;
+    MyArray<POS, 3> array;
+
+    for (int i = 0; i < arr.size(); i++) {
+        array[i].x = i + 1;
+        array[i].y = i + 11;
+    }
+
+    for (int i = 0; i < arr.size(); i++) {
+        /*std::cout << arr.at(i) << std::endl;*/
+        std::cout << array[i].x << ' ';
+        std::cout << array[i].y << std::endl;
+    }
 
     return 0;
+
 }
