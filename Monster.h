@@ -1,25 +1,27 @@
+template<typename T>
+
 // 派生クラス(基底クラスを継承してつくったクラス)
-class Monster : public Character {
+class Monster : public Character<T> {
 
 public:
     Monster() :
-        Character("スライム", 30, 1) {}
+        Character<T>("スライム", 30, 1) {}
 
     // Monsterのデストラクタ
-    ~Monster() override { cout << getName() << "[目の前が真っ暗になった。]" << endl; }
+    ~Monster() override { cout << this->getName() << "[目の前が真っ暗になった。]" << endl; }
 
     // 関数のオーバーライド
     void putStatus() override {
 
         std::cout << "---------------" << ' ' << std::endl;
 
-        std::cout << getName() << ' ' << "オーバーライド" << std::endl;
+        std::cout << this->getName() << ' ' << "オーバーライド" << std::endl;
 
-        std::cout << "HP" << ' ' << getHP() << std::endl;
+        std::cout << "HP" << ' ' << this->getHP() << std::endl;
 
         std::cout << "---------------" << ' ' << std::endl;
 
-        std::cout << "LV" << ' ' << getLV() << std::endl;
+        std::cout << "LV" << ' ' << this->getLV() << std::endl;
 
         std::cout << "---------------" << ' ' << std::endl;
     }
