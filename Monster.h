@@ -5,15 +5,15 @@ class Monster : public Character<T> {
 
 public:
     Monster() :
-        Character<T>("スライム", 30, 1) {}
+        Character<T>("スライム", 30, 1, 3, 4) {}
 
     // Monsterのデストラクタ
     ~Monster() override { cout << this->getName() << "[目の前が真っ暗になった。]" << endl; }
 
     // 関数のオーバーライド
-    void putStatus(const T& data, const T& data2) override {
+    void putStatus() override {
 
-        std::cout << data << " " << data2 << " " << std::endl;
+        std::cout << this->getX() << " " << this->getY() << " " << std::endl;
 
         std::cout << "---------------" << ' ' << std::endl;
 
