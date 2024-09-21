@@ -12,7 +12,9 @@ public:
     ~Player() override { cout << this->getName() << "[目の前が真っ暗になった。]" << endl; }
 
     // 関数のオーバーライド
-    void putStatus() override {
+    void putStatus(const T& data, const T& data2) override {
+
+        std::cout << data << " " << data2 << " " << std::endl;
 
         std::cout << "---------------" << ' ' << std::endl;
 
