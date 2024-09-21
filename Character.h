@@ -28,7 +28,7 @@ public:
     virtual ~Character() { cout << _name << "‚ªÁ‚¦‚Ü‚µ‚½B" << endl; }
 
     // ƒˆ‰¼‘zŠÖ”
-    virtual void putStatus() = 0;
+    virtual void putStatus(const T& data, const T& data2) = 0;
 
     string getName() const;
     T getHP() const;

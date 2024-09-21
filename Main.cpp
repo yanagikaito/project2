@@ -1,4 +1,5 @@
 #include <iostream>
+#include <list>
 #include "Character.h"
 #include "Player.h"
 #include "Monster.h"
@@ -6,18 +7,28 @@
 
 int main(void) {
 
-    // コンパイルする時に生成される。
+    // vectorと違ってポインタで順番に辿っていかなければならない
+    // 要素の追加と削除が得意
+
+    std::list<int> data;
     Player<int> player;
-
     Monster<int> monster;
-
     Boss<int> boss;
 
-    player.putStatus();
+    std::cout << "emplace_front 最初に挿入" << endl;
+    std::cout << "emplace_back おしりに追加" << endl;
 
-    monster.putStatus();
+    data.emplace_front(1);
+    data.emplace_back(2);
+    player.putStatus(data.front(), data.back());
 
-    boss.putStatus();
+    data.emplace_front(3);
+    data.emplace_back(4);
+    monster.putStatus(data.front(), data.back());
+
+    data.emplace_front(5);
+    data.emplace_back(6);
+    boss.putStatus(data.front(), data.back());
 
     return 0;
 
