@@ -1,5 +1,6 @@
 #include <iostream>
 #include <list>
+#include <iterator>
 #include "Character.h"
 #include "Player.h"
 #include "Monster.h"
@@ -17,6 +18,22 @@ int main(void) {
 
     std::cout << "emplace_front Å‰‚É‘}“ü" << endl;
     std::cout << "emplace_back ‚¨‚µ‚è‚É’Ç‰Á" << endl;
+
+
+    // ‹ô”‚Ì‘O‚ÉŠï”‚ð‘}“ü
+    int odd = 1;
+    auto it = data.begin();
+    while (it != data.end()) {
+        if (*it % 2 == 0) {
+            it = data.emplace(it, odd);
+            ++it;
+            ++it;
+            odd += 2;
+        }
+        else {
+            ++it;
+        }
+    }
 
     data.emplace_front(1);
     data.emplace_back(2);
