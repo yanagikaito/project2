@@ -19,6 +19,14 @@ int main(void) {
     std::cout << "emplace_front Å‰‚É‘}“ü" << endl;
     std::cout << "emplace_back ‚¨‚µ‚è‚É’Ç‰Á" << endl;
 
+    data.emplace_front(1);
+    data.emplace_back(2);
+
+    data.emplace_front(3);
+    data.emplace_back(4);
+
+    data.emplace_front(5);
+    data.emplace_back(6);
 
     // ‹ô”‚Ì‘O‚ÉŠï”‚ğ‘}“ü
     int odd = 1;
@@ -35,16 +43,16 @@ int main(void) {
         }
     }
 
-    data.emplace_front(1);
-    data.emplace_back(2);
+    data.emplace_front(data.front());
+    data.emplace_back(data.back());
     player.putStatus(data.front(), data.back());
 
-    data.emplace_front(3);
-    data.emplace_back(4);
+    data.emplace_front(data.front());
+    data.emplace_back(data.back());
     monster.putStatus(data.front(), data.back());
 
-    data.emplace_front(5);
-    data.emplace_back(6);
+    data.emplace_front(data.front());
+    data.emplace_back(data.back());
     boss.putStatus(data.front(), data.back());
 
     return 0;
