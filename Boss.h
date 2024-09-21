@@ -4,14 +4,14 @@ class Boss : public Character<T> {
 
 public:
     Boss() :
-        Character<T>("魔王", 500, 100) {}
+        Character<T>("魔王", 500, 100, 5, 6) {}
 
     // Bossのデストラクタ
     ~Boss() override { cout << this->getName() << "[目の前が真っ暗になった。]" << endl; }
 
-    void putStatus(const T& data, const T& data2) override {
+    void putStatus() override {
 
-        std::cout << data << " " << data2 << " " << std::endl;
+        std::cout << this->getX() << " " << this->getY() << " " << std::endl;
 
         std::cout << "---------------" << ' ' << std::endl;
 
